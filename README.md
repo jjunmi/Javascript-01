@@ -6,8 +6,10 @@
 3. 예약어 사용 불가
 
 ## \특수문자
-'i\'m a boy'
-`${변수명}`
+```plaintext
+  'i\'m a boy'
+  `${변수명}`
+```
 
 ## typeof : 데이터 타입을 문자열로 반환
 ```javascript
@@ -50,7 +52,7 @@
   confirm("예약을 취소하시겠습니까?");
 ```
 ### String()
-- 문자역
+- 문자열
 
 ### Number()
 - 숫자
@@ -58,12 +60,15 @@
 - Number(undefinded) = NaN
 
 ### Boolean()
-- true (1) / false (0)
-- false = 0, "", null, undefined, NaN
-Boolean(0) -> false
-Boolean('0') -> true
-Boolean('') -> false
-Boolean(' ') -> true
+```plaintext
+  - true (1) / false (0)
+  - false = 0, "", null, undefined, NaN
+
+  Boolean(0) -> false
+  Boolean('0') -> true
+  Boolean('') -> false
+  Boolean(' ') -> true
+```
 
 ## 기본연산자 Operators (+ - * %)
 - 홀수 x % 2 = 1
@@ -98,8 +103,8 @@ Boolean(' ') -> true
     //반복할 코드
   }
 
-  //continue 예제 : 0 2 3 4 8 짝수 반환
-  for(let i = 0;i <10; i ++){
+  //continue 예제 : 0 2 4 6 8 짝수 반환
+  for(let i = 0;i < 10; i ++){
     if(i%2){
     continue;
     }
