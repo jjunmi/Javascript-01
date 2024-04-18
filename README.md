@@ -1,9 +1,53 @@
 # Javascript-01
 ***자바스크립트는 위에서 아래로 한줄씩 읽고 순차적으로 실행되고 즉시 반환되는 인터프리터 언어(interpreted language)***
 ## 변수
+호이스팅은 스코프 단위로 일어남 
+### 변수명규칙
 1. 변수명: 문자, 숫자, $
 2. 첫 글자는 숫자가 될 수 없음
 3. 예약어 사용 불가
+
+### var (호이스팅 hoisting)
+- 함수 스코프 (function-scoped)
+1. 선언 및 초기화 단계
+2. 할당 단계
+```javascript
+  var name;
+  console.log(name); //undefined 값 할당 안됨x
+  name = 'Mike'; //할당시작
+```
+
+### let  (Temporal Dead Zone 영향받음)
+- 블록 스코프(block-scoped)
+1. 선언 단계
+2. 초기화단계
+3. 할당단계
+
+### const (Temporal Dead Zone 영향받음)
+- 블록 스코프(block-scoped)
+1. 선언 단계 + 초기화 + 할당
+```javascript
+  //Block Scoped : 지역변수
+  //함수, if문, for문, while문, try/catch 문 등
+  function add() {
+    // Block-level Scope
+  }
+  if() {
+    //Block-level Scope
+  }
+  for(let i=0;i<10;i++){
+    //Block-level Scope
+  }
+
+  //Function-scoped : 함수에서 선언한 변수만 그 지역변수로 됨
+  //var 유일하게 벗어날수 없는 스코프가 함수 스코프임
+  const age = 30;
+  if(age>19) {
+    var txt = '성인';
+  }
+  console.log(txt); //성인
+```  
+
 
 ## \특수문자
 ```plaintext
