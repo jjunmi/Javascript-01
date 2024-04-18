@@ -21,7 +21,7 @@
 - 블록 스코프(block-scoped)
 1. 선언 단계
 2. 초기화단계
-3. 할당단계
+3. 할당 단계
 
 ### const (Temporal Dead Zone 영향받음)
 - 블록 스코프(block-scoped)
@@ -457,6 +457,7 @@
     console.log(key)
     console.log(superman[key])
   }
+```
 ```javascript
   const Mike  =  {
     name: 'Mike',
