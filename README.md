@@ -420,6 +420,49 @@
     return result;
   }
 ```
+### 함수 표현식 : 변수에 함수 넣은것: 변수로 호출 :변수();
+### 호이스팅이 안됨
+```javascript
+      function funcA() {
+        console.log("funcA");
+      }
+      let varA = funcA;
+      varA();
+      
+      let varB = function funcB() {
+        console.log("funcB");
+      }
+      varB();
+      //funbB();//오류 변수의 이름으로 불러야함 -> varB 
+      //그래서
+      let varC = function() {
+        console.log("func varC");
+      }
+      varC(); //호이스팅 안됨
+```
+## 콜백 함수
+```javascript
+      function main(value) {
+        value();
+      }
+      function sub() {
+        console.log("sub");
+      }
+      main(sub); //sub 콜백함수
+
+      //결과 : sub
+```
+```javascript
+      function main(value) {
+        value();
+      }
+      function sub() {
+        console.log("sub");
+      }
+      main(sub); //sub 콜백함수
+
+      //결과 : sub
+```
 ## 객체 Object
 ***키(key) : 값(value)***
 ```javascript
