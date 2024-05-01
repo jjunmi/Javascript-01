@@ -443,7 +443,7 @@
 ## 콜백 함수
 ```javascript
       function main(value) {
-        value();
+        value(); //서브함수 호출
       }
       function sub() {
         console.log("sub");
@@ -454,32 +454,84 @@
 ```
 ```javascript
       function main(value) {
-        value();
+        console.log(value); //서브함수 그 자체가 출력
       }
       function sub() {
-        console.log("sub");
+        console.log("i am sub");
       }
-      main(sub); //sub 콜백함수
+      main(sub); //sub = 콜백함수 : 나중에 실행되는 뜻
 
-      //결과 : sub
+```
+```javascript
+
+      function main(value) {
+        console.log(value); //서브함수 그 자체가 출력
+      }
+//함수 표현식 처럼 써도됨
+      main(function sub() {
+        console.log("i am sub");
+      });
+      main(function() {
+        //함수 표현식 : 익명함수
+      })
+      main(() => {
+      })
+```
+콜백함수의 활용
+```javascript
+      function repeat(count, callback) {
+        for(let i = 1; i <= count; i ++){
+            callback(i);
+        }
+      }
+/*
+      function repeatDouble(count) {
+        for(let i = 1; i <= count; i ++){
+            console.log(i * 2);
+        }
+      }
+*/
+      repeat(5, function(i){
+        console.log(i); //1 2 3 4 5
+      });
+      repeat(5, function(i){
+        console.log(i * 2) //2 4 6 8 10
+      });
+      repeat(5, function(i){
+        console.log(i * 3) //3 6 9 12 15
+      }); 
 ```
 ## 객체 Object
+### 객체 생성
+1. let obj1 = new Object(); 객체 생성자
+2. let obj2 = {}; 객체 리터럴 (대부분)
+
 ***키(key) : 값(value)***
 ```javascript
+  //키는 문자나 숫자, 띄어쓰기 있으면 "" 로 감싼다
   const superman = {
-    name: 'clark',
+    name: 'clark', //프로퍼티
     age: 33,
+    10: 20,
+    "like cat": true,
   }
 ```
 ```plaintext
+  
   <접근>
+  *** 점, 가로 표기법 ***
   superman.name //clark
-  superman['age'] //33
+  superman['age'] //33 ->꼭 ""로 표기 해야함, 아니면 변수로 인식해서 오류
+  
   <추가>
   superman.gender = 'male';
   superman['hairColor'] = 'black';
   <삭제 : delete 키워드>
   delete superman.hairColor;
+  delete superman["hairColor"];
+
+  let property = "hobby";
+  let hobby = person[property];
 ```
 ### 단축 프로퍼티
 ***in연산자로 프로퍼티 확인가능 : 함수 인자로 받거나 API통신을 통해 DATA를 받을때 사용***
@@ -566,6 +618,7 @@
       }
     }
   superman.fly(); //날아갑니다
+  superman.["fly"]();
 ```  
 ```javascript
   const ueser = {
@@ -587,6 +640,9 @@
   girl.sayHello(); //I'm Jane  
 ```
 ## 배열 Array 
+### 객체 생성
+1. let arrA = new Array(); 배열 생성자
+2. let arrB = []; 배열 리터럴 (대부분)
 - 순서가 있는 리스트 (index는 0부터 시작)
 - length: 배열의 길이 반환 (students.length)
 - push(): 배열 끝에 추가*
